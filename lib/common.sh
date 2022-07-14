@@ -1080,6 +1080,8 @@ function get_kernel_version_for_platform_from_apt() {
 	else
 		package="linux-image-${platform}"
 	fi
+	# XXX force it to be linux-image-platform
+	package="linux-image-${platform}"
 
 	if [[ "$(apt-cache show --no-all-versions "$package" \
 		2>/dev/null | grep Depends)" =~ linux-image-([^,]*-${platform}) ]]; then
